@@ -14,6 +14,8 @@ const c = console.log;
 //file writing helpers
 const fs = require('fs');
 
+const plix = require('./plix.js');
+
 function showError() {
 c(chalk.red(`
             ░▓▓▓░
@@ -36,12 +38,12 @@ c();
 c(chalk.hex('#EEEEEE')(`  ▄███████▄  ▄█        ▄█ ▀████    ▐████▀`));
 c(chalk.hex('#DEDEDE')(` ███    ███ ███       ███   ███▌   ████▀ `));
 c(chalk.hex('#CECECE')(` ███    ███ ███       ███▌   ███  ▐███   `));
- c(chalk.hex('#BEBEBE')(` ███    ███ ███       ███▌   ▀███▄███▀   `));
- c(chalk.hex('#AEAEAE')(`▀█████████▀ ███       ███▌    ████▀██▄   `));
- c(chalk.hex('#AEAEAE')(` ███        ███       ███    ▐███  ▀███   `));
- c(chalk.hex('#AEAEAE')(` ███        ███▌    ▄ ███   ▄███     ███▄ `));
- c(chalk.hex('#AEAEAE')(`▄████▀      █████▄▄██ █▀   ████       ███▄`));
- c(chalk.hex('#AEAEAE')(`                ▀`));
+c(chalk.hex('#BEBEBE')(` ███    ███ ███       ███▌   ▀███▄███▀   `));
+c(chalk.hex('#AEAEAE')(`▀█████████▀ ███       ███▌    ████▀██▄   `));
+c(chalk.hex('#AEAEAE')(` ███        ███       ███    ▐███  ▀███   `));
+c(chalk.hex('#AEAEAE')(` ███        ███▌    ▄ ███   ▄███     ███▄ `));
+c(chalk.hex('#AEAEAE')(`▄████▀      █████▄▄██ █▀   ████       ███▄`));
+c(chalk.hex('#AEAEAE')(`                ▀           ▀`));
 c(chalk.bold.green(`Build a blog with markdown`));
 showHelp();
 c();
@@ -60,7 +62,10 @@ function getConfig() {
   if (fs.existsSync('plix.json')) {
     return JSON.parse(fs.readFileSync('plix.json'));
   } else {
-    return false;
+    showError();
+    c(chalk.red('Plix config not found'));
+    c(chalk.magenta(`${appName} new my-epic-plix-blog-2020`), chalk.blue(` - Creates a plix blog`));
+    process.exit();
   }
 }
 
@@ -132,7 +137,7 @@ if (args[0]) { //we need a command to run anything at all
       // 4) write the config file
       const newBlogObject = {
         title: 'My New Plix Blog',
-        author: 'Charlie Plix',
+        author: 'Lee Nattress',
         theme: 'simplest'
       }
       const jsonContent = JSON.stringify(newBlogObject, null, 4);
@@ -178,16 +183,19 @@ if (args[0]) { //we need a command to run anything at all
       // verify we are in the right place, we should have a config json here
       if (fs.existsSync('plix.json')){
 
+
+        const siteConfig = getConfig();
+
+        const now = new Date().toISOString();
         const markdownContent = `
-* [blog-title]:- (Main Title)
-* [blog-author]:- (Author Name)
+[blog-date]: <> (${now})
+[blog-title]: <> (Page Title)
+[blog-author]: <> (${siteConfig.author})
 
-## Sub title
-
-Page content here
+Write your page content here.
         `;
 
-const fileName = appDirIn + '/' + subject + '.md';
+        const fileName = appDirIn + '/' + subject + '.md';
 
           if (fs.existsSync(fileName)){
             showError();
@@ -218,37 +226,20 @@ const fileName = appDirIn + '/' + subject + '.md';
   }
   if (command === 'deploy') {
     const siteConfig = getConfig();
-    if (siteConfig) {
-      c(chalk.green('Deploying'), siteConfig.title);
-    } else {
-      showError();
-      c(chalk.red('Plix config not found'));
-      c(chalk.magenta(`${appName} new my-epic-plix-blog-2020`), chalk.blue(` - Creates a plix blog`));
-    }
+    c(chalk.green('Deploying'), siteConfig.title);
     // TODO: send the output folder contents to an s3 bucket, ftp, etc.
     process.exit()
   }
   if (command === 'build') {
     const siteConfig = getConfig();
-    if (siteConfig) {
-      c(chalk.green('Building'), siteConfig.title);
-    } else {
-      showError();
-      c(chalk.red('Plix config not found'));
-      c(chalk.magenta(`${appName} new my-epic-plix-blog-2020`), chalk.blue(` - Creates a plix blog`));
-    }
+    c(chalk.green('Building'), siteConfig.title);
+    plix.build(appDirIn, appDirOut, siteConfig.theme);
     // TODO: build the files to the output folder
     process.exit()
   }
   if (command === 'serve') {
     const siteConfig = getConfig();
-    if (siteConfig) {
-      c(chalk.green('Building and serving'), siteConfig.title);
-    } else {
-      showError();
-      c(chalk.red('Plix config not found'));
-      c(chalk.magenta(`${appName} new my-epic-plix-blog-2020`), chalk.blue(` - Creates a plix blog`));
-    }
+    c(chalk.green('Building and serving'), siteConfig.title);
     // TODO: basic webserver for the files in the build folder
     process.exit()
   }
