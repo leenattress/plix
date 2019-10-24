@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
+const ctx = new chalk.constructor({level: 0});
 
 const args = process.argv.slice(2); //remove the first two things in the args
 const appName = 'plix';
@@ -7,15 +8,15 @@ const c = console.log;
 
 function showTitle() {
 c();
-c(chalk.white(`  ▄███████▄  ▄█        ▄█ ▀████    ▐████▀`));
-c(chalk.white(` ███    ███ ███       ███   ███▌   ████▀ `));
-c(chalk.white(` ███    ███ ███       ███▌   ███  ▐███   `));
- c(chalk.cyan(` ███    ███ ███       ███▌   ▀███▄███▀   `));
- c(chalk.cyan(`▀█████████▀ ███       ███▌    ████▀██▄   `));
- c(chalk.cyan(` ███        ███       ███    ▐███  ▀███   `));
- c(chalk.blue(` ███        ███▌    ▄ ███   ▄███     ███▄ `));
- c(chalk.blue(`▄████▀      █████▄▄██ █▀   ████       ███▄`));
- c(chalk.blue(`                ▀`));
+c(chalk.hex('#EEEEEE')(`  ▄███████▄  ▄█        ▄█ ▀████    ▐████▀`));
+c(chalk.hex('#DEDEDE')(` ███    ███ ███       ███   ███▌   ████▀ `));
+c(chalk.hex('#CECECE')(` ███    ███ ███       ███▌   ███  ▐███   `));
+ c(chalk.hex('#BEBEBE')(` ███    ███ ███       ███▌   ▀███▄███▀   `));
+ c(chalk.hex('#AEAEAE')(`▀█████████▀ ███       ███▌    ████▀██▄   `));
+ c(chalk.hex('#AEAEAE')(` ███        ███       ███    ▐███  ▀███   `));
+ c(chalk.hex('#AEAEAE')(` ███        ███▌    ▄ ███   ▄███     ███▄ `));
+ c(chalk.hex('#AEAEAE')(`▄████▀      █████▄▄██ █▀   ████       ███▄`));
+ c(chalk.hex('#AEAEAE')(`                ▀`));
 c(chalk.bold.green(`Build a blog with markdown`));
 showHelp();
 c();
