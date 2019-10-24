@@ -17,8 +17,15 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="mt-5">{{pageTitle}} <small class="text-muted">by {{pageAuthor}}</small></h1>
+        <h1 class="mt-5">{{pageTitle}} <small class="text-muted">by {{pageAuthor}} ({{pageIndex}})</small></h1>
         {{pageContent | safe}}
+        {% if related %}<h3>Related Posts</h3>
+        <ul>
+        {% for item in related %} <li><a href="{{ item.pageLink }}">{{ item.pageTitle }}</a> - {{ item.pageDate | date("D MMM YYYY")  }}</li>
+        {% endfor %}</ul>{% endif %}
+
+        <div>{% if linkNext %}<a href="{{linkNext}}">Next</a>{% endif %}</div>
+        <div>{% if linkPrev %}<a href="{{linkPrev}}">Previous</a>{% endif %}</div>
       </div>
     </div>
   </div>
