@@ -9,6 +9,9 @@
 
 > Minimal markdown blog builder.
 
+![plix terminal header](images/plix_readme.PNG)
+
+
 ### 🏠 [Homepage](https://github.com/leenattress/plix)
 
 ## Install
