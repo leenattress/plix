@@ -1,19 +1,26 @@
 {
-  "name": "plix-cli",
-  "version": "0.0.1",
-  "description": "Minimal markdown based blog builder.",
+  "name": "plix",
+  "version": "0.0.2",
+  "description": "Minimal markdown blog builder.",
   "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Lee Nattress",
+  "author": "Lee Nattress <leenattress1981@gmail.com> (http://leenattress.com)",
   "license": "ISC",
   "bin": {
     "plix": "./bin/index.js"
   },
+  "install": "npm i plix -g",
   "dependencies": {
-    "chalk": "^2.4.2",
-    "minimist": "^1.2.0",
-    "yargs": "^14.2.0"
-  }
+    "chalk": "^2.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leenattress/plix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leenattress/plix/issues"
+  },
+  "homepage": "https://github.com/leenattress/plix"
 }
