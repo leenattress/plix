@@ -6,9 +6,11 @@ md = new MarkdownIt();
 const attrs = require('markdown-it-attrs');
 md.use(attrs);
 
+const nunjucks = require('nunjucks');
+nunjucks.configure({ autoescape: true });
+
 //var ncp = require("ncp");
 const appRoot = require('app-root-path');
-
 
 function render(node, inFolder, outFolder) {
     //console.log(node, inFolder, outFolder);
@@ -45,13 +47,21 @@ function render(node, inFolder, outFolder) {
           // render the markdown to html
           var htmlResult = md.render(contents);
 
-          var htmlRender = template.replace('{{pageContent}}', htmlResult);
-          var htmlRender = htmlRender.replaceAll('{{pageTitle}}', titleData[0]); //title
-          var htmlRender = htmlRender.replaceAll('{{pageAuthor}}', authorData[0]); //author
+          //var htmlRender = template.replace('{{pageContent}}', htmlResult);
+          //var htmlRender = htmlRender.replaceAll('{{pageTitle}}', titleData[0]); //title
+          //var htmlRender = htmlRender.replaceAll('{{pageAuthor}}', authorData[0]); //author
 
           // replace md in the filename for html
           filename = page.name.substr(0, page.name.lastIndexOf(".")) + ".html";
 
+          const htmlRender = nunjucks.renderString(template,
+            {
+              pageTitle: titleData[0],
+              pageAuthor: authorData[0],
+              pageContent: htmlResult
+            }
+          );
+  
           // write the file back to disk
           fs.writeFileSync(outFolder + '/' + filename, htmlRender);
           console.log(outFolder + '/' + filename + ' written.');
@@ -65,7 +75,7 @@ function render(node, inFolder, outFolder) {
   }
 
 function build (inFolder, outFolder, themeFolder) {
-  console.log('build called')
+
   try {
     fs.copySync(appRoot + '/theme/assets', outFolder + '/assets')
     const tree = dirTree(inFolder);

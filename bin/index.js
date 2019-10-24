@@ -14,7 +14,11 @@ const c = console.log;
 //file writing helpers
 const fs = require('fs');
 
+// plix app functions
 const plix = require('./plix.js');
+
+//package json details in app
+const pjson = require('./../package.json');
 
 function showError() {
 c(chalk.red(`
@@ -44,7 +48,7 @@ c(chalk.hex('#AEAEAE')(` ███        ███       ███    ▐██
 c(chalk.hex('#AEAEAE')(` ███        ███▌    ▄ ███   ▄███     ███▄ `));
 c(chalk.hex('#AEAEAE')(`▄████▀      █████▄▄██ █▀   ████       ███▄`));
 c(chalk.hex('#AEAEAE')(`                ▀           ▀`));
-c(chalk.bold.green(`Build a blog with markdown`));
+c(chalk.bold.green(`Build a blog with markdown ${pjson.version}`));
 showHelp();
 c();
 }

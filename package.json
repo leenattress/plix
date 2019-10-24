@@ -1,6 +1,6 @@
 {
   "name": "plix",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Minimal markdown blog builder.",
   "main": "bin/index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "markdown-it": "^9.0.0",
     "markdown-it-attrs": "^3.0.1",
     "mkdirp": "^0.5.1",
-    "ncp": "^2.0.0",
+    "nunjucks": "^3.2.0",
     "static-server": "^2.2.1"
   },
   "repository": {
