@@ -14,7 +14,23 @@ const c = console.log;
 //file writing helpers
 const fs = require('fs');
 
-
+function showError() {
+c(chalk.red(`
+            ░▓▓▓░
+           ░▓    ░
+          ░▓ ░░░▒ ░
+         ░▓ ░░░░░▒ ░
+        ░▓ ░░   ░░▒ ░
+       ░▓ ░░░   ░░░▒ ░
+      ░▓ ░░░░   ░░░░▒ ░
+     ░▓ ░░░░░   ░░░░░▒ ░
+    ░▓ ░░░░░░   ░░░░░░▒ ░
+   ░▓ ░░░░░░░░░░░░░░░░░▒ ░
+  ░▓ ░░░░░░░░   ░░░░░░░░▒ ░
+ ░▓ ░░░░░░░░░░░░░░░░░░░░░▒ ░
+ ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░
+`));
+}
 function showTitle() {
 c();
 c(chalk.hex('#EEEEEE')(`  ▄███████▄  ▄█        ▄█ ▀████    ▐████▀`));
@@ -51,7 +67,8 @@ function getConfig() {
 if (args[0]) { //we need a command to run anything at all
   const command = args[0]; //
 
-  if (!['new', 'page', 'deploy', 'build', 'serve'].includes(command)) {
+  if (!['help', 'new', 'page', 'deploy', 'build', 'serve'].includes(command)) {
+    showError();
     c(chalk.red('You gave a command that does not exist.'));
     showHelp();
   }
@@ -60,16 +77,22 @@ if (args[0]) { //we need a command to run anything at all
     subject = args[1];
   }
   if (args[2]) {
+    showError();
     c(chalk.red('Too many commands, you give a single command and a subject'));
     showHelp();
     process.exit();
   }
 
   // this command creates required configs and folders in the current folder
+  if (command === 'help') {
+    showTitle();
+  }
+  // this command creates required configs and folders in the current folder
   if (command === 'new') {
 
     // to run this command we need a blog name
     if (!subject) {
+      showError();
       c(chalk.red('No blog name provided'));
       c(chalk.blue(`Try: ${appName} new my-epic-blog-2020`));
     }
@@ -83,6 +106,7 @@ if (args[0]) { //we need a command to run anything at all
         fs.mkdirSync(subject);
         c(chalk.green(`${subject} folder created`));
       } else {
+        showError();
         c(chalk.red(`${subject} folder exists, exiting`));
         process.exit();
       }
@@ -92,6 +116,7 @@ if (args[0]) { //we need a command to run anything at all
         fs.mkdirSync(subject + '/' + appDirIn);
         c(chalk.green(`${subject + '/' + appDirIn} markdown folder created`));
       } else {
+        showError();
         c(chalk.red(`markdown folder exists, skipping`));
       }
 
@@ -100,6 +125,7 @@ if (args[0]) { //we need a command to run anything at all
         fs.mkdirSync(subject + '/' + appDirOut);
         c(chalk.green(`${subject + '/' + appDirOut} markdown folder created`));
       } else {
+        showError();
         c(chalk.red(`build folder exists, skipping`));
       }
 
@@ -110,7 +136,6 @@ if (args[0]) { //we need a command to run anything at all
         theme: 'simplest'
       }
       const jsonContent = JSON.stringify(newBlogObject, null, 4);
-      console.log(jsonContent);
       if (!fs.existsSync(subject + '/' + 'plix.json')){
         fs.writeFileSync(subject + '/' + 'plix.json', jsonContent, 'utf8', function (err) {
             if (err) {
@@ -128,6 +153,7 @@ if (args[0]) { //we need a command to run anything at all
       // TODO: create folders for the markdown and output
       // TODO: create a theme folder and put the starter theme in it
     } else {
+      showError();
       c(chalk.red('Blog is not a valid file name. Blog name must-be-in-slug-format.'));
       c(chalk.blue('Try lower case, dashes and numbers only.'));
     }
@@ -140,6 +166,7 @@ if (args[0]) { //we need a command to run anything at all
 
     // to run this command we need a page name
     if (!subject) {
+      showError();
       c(chalk.red('No page provided'));
       c(chalk.blue(`Try: ${appName} page my-first-page`));
     }
@@ -148,10 +175,42 @@ if (args[0]) { //we need a command to run anything at all
     const slugRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
     if (subject && slugRegex.test(subject)) {
 
+      // verify we are in the right place, we should have a config json here
+      if (fs.existsSync('plix.json')){
+
+        const markdownContent = `
+* [blog-title]:- (Main Title)
+* [blog-author]:- (Author Name)
+
+## Sub title
+
+Page content here
+        `;
+
+const fileName = appDirIn + '/' + subject + '.md';
+
+          if (fs.existsSync(fileName)){
+            showError();
+            c(chalk.red('Page already exists'));
+            process.exit()
+          }
+
+          fs.writeFileSync(fileName, markdownContent, 'utf8', function (err) {
+              if (err) {
+                  c(`An error occured while writing ${fileName} config to File.`);
+                  return c(err);
+              }
+
+              c(chalk.green(`${subject}.md markdown created`));
+          });
+        }
+
+
       c(chalk.green('Creating page: ' + subject));
       // TODO: create page here in markdown folder
 
     } else {
+      showError();
       c(chalk.red('Page is not a valid file name. Pages must-be-in-slug-format.'));
       c(chalk.blue('Try lower case, dashes and numbers only.'));
     }
@@ -162,6 +221,7 @@ if (args[0]) { //we need a command to run anything at all
     if (siteConfig) {
       c(chalk.green('Deploying'), siteConfig.title);
     } else {
+      showError();
       c(chalk.red('Plix config not found'));
       c(chalk.magenta(`${appName} new my-epic-plix-blog-2020`), chalk.blue(` - Creates a plix blog`));
     }
@@ -173,6 +233,7 @@ if (args[0]) { //we need a command to run anything at all
     if (siteConfig) {
       c(chalk.green('Building'), siteConfig.title);
     } else {
+      showError();
       c(chalk.red('Plix config not found'));
       c(chalk.magenta(`${appName} new my-epic-plix-blog-2020`), chalk.blue(` - Creates a plix blog`));
     }
@@ -184,6 +245,7 @@ if (args[0]) { //we need a command to run anything at all
     if (siteConfig) {
       c(chalk.green('Building and serving'), siteConfig.title);
     } else {
+      showError();
       c(chalk.red('Plix config not found'));
       c(chalk.magenta(`${appName} new my-epic-plix-blog-2020`), chalk.blue(` - Creates a plix blog`));
     }
