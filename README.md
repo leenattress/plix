@@ -17,10 +17,10 @@
 ## Install
 
 ```sh
-npm i -g
+npm i plix -g
 ```
 
-## Usage
+## Help
 
 ```sh
 plix help
