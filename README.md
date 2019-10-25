@@ -1,4 +1,4 @@
-# Welcome to plix 🍰
+# PLEASE DO NOT USE YET, VERY UNSTABLE/NOT WORKING 🍰
 ## Markdown driven blogging
 
 [![Version](https://img.shields.io/npm/v/plix.svg)](https://www.npmjs.com/package/plix)
