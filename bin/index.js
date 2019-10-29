@@ -12,7 +12,8 @@ const appDirOut = 'out';
 const c = console.log;
 
 //file writing helpers
-const fs = require('fs');
+const fs = require('fs-extra');
+const appRoot = require('app-root-path');
 
 // plix app functions
 const plix = require('./plix.js');
@@ -110,52 +111,54 @@ if (args[0]) { //we need a command to run anything at all
     const slugRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
     if (subject && slugRegex.test(subject)) { //testing to see
 
-      // 1) create a folder for the blog if one does not exist
-      if (!fs.existsSync(subject)){
-        fs.mkdirSync(subject);
-        c(chalk.green(`${subject} folder created`));
-      } else {
-        showError();
-        c(chalk.red(`${subject} folder exists, exiting`));
-        process.exit();
-      }
+      // // 1) create a folder for the blog if one does not exist
+      // if (!fs.existsSync(subject)){
+      //   fs.mkdirSync(subject);
+      //   c(chalk.green(`${subject} folder created`));
+      // } else {
+      //   showError();
+      //   c(chalk.red(`${subject} folder exists, exiting`));
+      //   process.exit();
+      // }
+      //
+      // // 2) create the markdown folder
+      // if (!fs.existsSync(subject + '/' + appDirIn)){
+      //   fs.mkdirSync(subject + '/' + appDirIn);
+      //   c(chalk.green(`${subject + '/' + appDirIn} markdown folder created`));
+      // } else {
+      //   showError();
+      //   c(chalk.red(`markdown folder exists, skipping`));
+      // }
+      //
+      // // 3) create the output folder
+      // if (!fs.existsSync(subject + '/' + appDirOut)){
+      //   fs.mkdirSync(subject + '/' + appDirOut);
+      //   c(chalk.green(`${subject + '/' + appDirOut} build folder created`));
+      // } else {
+      //   showError();
+      //   c(chalk.red(`build folder exists, skipping`));
+      // }
 
-      // 2) create the markdown folder
-      if (!fs.existsSync(subject + '/' + appDirIn)){
-        fs.mkdirSync(subject + '/' + appDirIn);
-        c(chalk.green(`${subject + '/' + appDirIn} markdown folder created`));
-      } else {
-        showError();
-        c(chalk.red(`markdown folder exists, skipping`));
-      }
+      fs.copySync(appRoot + '/payload', subject);
 
-      // 3) create the output folder
-      if (!fs.existsSync(subject + '/' + appDirOut)){
-        fs.mkdirSync(subject + '/' + appDirOut);
-        c(chalk.green(`${subject + '/' + appDirOut} markdown folder created`));
-      } else {
-        showError();
-        c(chalk.red(`build folder exists, skipping`));
-      }
-
-      // 4) write the config file
-      const newBlogObject = {
-        title: 'My New Plix Blog',
-        author: 'Lee Nattress',
-        theme: 'simplest'
-      }
-      const jsonContent = JSON.stringify(newBlogObject, null, 4);
-      if (!fs.existsSync(subject + '/' + 'plix.json')){
-        fs.writeFileSync(subject + '/' + 'plix.json', jsonContent, 'utf8', function (err) {
-            if (err) {
-                console.log(`An error occured while writing ${appName} config to File.`);
-                return console.log(err);
-            }
-
-            c(chalk.green(`${appName} config created`));
-            c(chalk.magenta(`Try: ${appName} page page-of-amazing-content`), chalk.blue(` - Adds a page to your blog`));
-        });
-      }
+      // // 4) write the config file
+      // const newBlogObject = {
+      //   title: 'My New Plix Blog',
+      //   author: 'Lee Nattress',
+      //   theme: 'simplest'
+      // }
+      // const jsonContent = JSON.stringify(newBlogObject, null, 4);
+      // if (!fs.existsSync(subject + '/' + 'plix.json')){
+      //   fs.writeFileSync(subject + '/' + 'plix.json', jsonContent, 'utf8', function (err) {
+      //       if (err) {
+      //           console.log(`An error occured while writing ${appName} config to File.`);
+      //           return console.log(err);
+      //       }
+      //
+      //       c(chalk.green(`${appName} config created`));
+      //       c(chalk.magenta(`Try: ${appName} page page-of-amazing-content`), chalk.blue(` - Adds a page to your blog`));
+      //   });
+      // }
 
       c(chalk.green('Create blog: ' + subject));
       // TODO: create json object in project root with config options
@@ -195,6 +198,7 @@ if (args[0]) { //we need a command to run anything at all
 [blog-date]: <> (${now})
 [blog-title]: <> (Page Title)
 [blog-author]: <> (${siteConfig.author})
+[blog-featured]: <> (assets/images/default_featured.gif)
 
 Write your page content here.
         `;
