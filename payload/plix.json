@@ -1,5 +1,18 @@
 {
   "title": "My New Plix Blog",
-  "author": "Blog Owner",
-  "theme": "simplest"
+  "theme": "simplest",
+  "author": {
+    "name": "Blog Owner",
+    "bio": "Insert your bio here",
+    "photo": "https://i.pravatar.cc/300"
+  },
+  "social": {
+    "twitter": "https://twitter.com/",
+    "github": "https://github.com/"
+  },
+  "links": {
+    "Home": "/",
+    "Google": "http://www.google.com",
+    "Bing": "http://www.bing.com"
+  }
 }

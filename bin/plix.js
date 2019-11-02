@@ -12,12 +12,8 @@ dateFilter.setDefaultFormat('dddd, MMMM Do YYYY, h:mm:ss a');
 let env = nunjucks.configure({ autoescape: true });
 env.addFilter('date', dateFilter);
 
-//var ncp = require("ncp");
-const appRoot = require('app-root-path');
-
 function getMeta(contents, meta) {
   var regStr = `\\[blog-${meta}\\]: <>\\s\\(*(.+)\\)\\s*`;
-  //console.log(regStr);
   var reg = new RegExp(regStr);
   const stringReturn = (contents.match(reg) || []).map(e => e.replace(reg, '$1'));
   if (stringReturn[0]) {
@@ -27,22 +23,15 @@ function getMeta(contents, meta) {
   }
 }
 
-function render(node, inFolder, outFolder, themeFolder) {
-
-    // replace all helper
-    String.prototype.replaceAll = function(search, replacement) {
-        var target = this;
-        return target.replace(new RegExp(search, 'g'), replacement);
-    };
+function render(node, inFolder, outFolder, siteConfig) {
 
     // get the contents of the template file
-    var template = fs.readFileSync('theme/'+ themeFolder +'/page.html', 'utf8');
+    var template = fs.readFileSync('themes/'+ siteConfig.theme +'/page.html', 'utf8');
 
     let pages = [];
-    let pageIndex = 0;
+
     node.forEach((page) => {
       if (page.path && page.type === 'file' && page.extension === '.md') {
-        console.log(page.path);
 
         // get contents of markdown from disk
         var contents = fs.readFileSync(page.path, 'utf8');
@@ -62,26 +51,17 @@ function render(node, inFolder, outFolder, themeFolder) {
           // replace md in the filename for html
           filename = page.name.substr(0, page.name.lastIndexOf(".")) + ".html";
 
-          //previous and next links
-          let linkPrev = null, linkNext = null
-          if (node[pageIndex-1]) { linkNext = node[pageIndex-1].name.substr(0, node[pageIndex-1].name.lastIndexOf(".")) + ".html"; }
-          if (node[pageIndex+1]) { linkPrev = node[pageIndex+1].name.substr(0, node[pageIndex+1].name.lastIndexOf(".")) + ".html"; }
-
           // add to the page array
           pages.push({
             pageTitle: metaTitle,
             pageAuthor: metaAuthor,
             pageDate: metaDate,
             pageContent: htmlResult,
-            pageIndex: pageIndex,
             pageLink: filename,
             pageFeaturedImage: metaFeaturedImage,
-            linkNext: linkNext,
-            linkPrev: linkPrev,
-            contents: contents,
-            filename: filename
+            filename: filename,
+            siteConfig: siteConfig
           });
-          pageIndex ++; //add one to the page index
         }
       }
     });
@@ -91,34 +71,77 @@ function render(node, inFolder, outFolder, themeFolder) {
       return new Date(a.pageDate) - new Date(b.pageDate);
     });
 
-    pagesCopy = JSON.parse(JSON.stringify(pages))
-    pages.forEach((page) => {
+    pagesCopy = JSON.parse(JSON.stringify(pages)); // for the history included in each page
 
-          // attach all items to history for in page rendering.
-          page.history = pagesCopy;
+    pagesCopy.forEach((specialPage) => { // special cases like index and 404, separated out here
 
-          // render the markdown to html
-          var htmlResult = md.render(page.contents);
+        if (['404.html', 'index.html'].includes(specialPage.pageLink)) {
+            // attach all items to history for in page rendering.
+            specialPage.history = pagesCopy.filter((page) => { // remove index and 404 from the history
+                if (!['404.html', 'index.html'].includes(page.pageLink)) {
+                    return page;
+                }
+            }).reverse();
 
-          // final rengered page with html and data
-          //console.log(page);
-          const htmlRender = nunjucks.renderString(template,page);
+            // final rendered page with html and data
+            const htmlRender = nunjucks.renderString(template, specialPage);
 
-          // write the file back to disk, at the moment, flat file structure
-          fs.writeFileSync(outFolder + '/' + page.filename, htmlRender);
-          console.log(outFolder + '/' + page.filename + ' written.');
+            // write the file back to disk, at the moment, flat file structure
+            fs.writeFileSync(outFolder + '/' + specialPage.filename, htmlRender);
 
+            // log it out
+        }
+    });
+
+    pagesCopy = pagesCopy.filter((page) => { // remove index and 404 from the history
+        if (!['404.html', 'index.html'].includes(page.pageLink)) {
+            return page;
+        }
+    });
+    pagesCopy = pagesCopy.sort(function(a,b){
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(b.pageDate) - new Date(a.pageDate);
+    });
+
+    let pageIndex = 0;
+    pagesCopy.forEach((page) => {
+
+        //previous and next links
+        let linkPrev = null, linkNext = null;
+        if (pagesCopy[pageIndex + 1]) {
+            linkPrev = pagesCopy[pageIndex + 1].pageLink;
+        }
+        if (pagesCopy[pageIndex - 1]) {
+            linkNext = pagesCopy[pageIndex - 1].pageLink;
+        }
+
+        // attach all items to history for in page rendering.
+        page.history = pagesCopy.reverse();
+        page.pageIndex = pageIndex;
+        page.linkPrev = linkPrev;
+        page.linkNext = linkNext;
+
+        // final rendered page with html and data
+        const htmlRender = nunjucks.renderString(template, page);
+
+        // write the file back to disk, at the moment, flat file structure
+        fs.writeFileSync(outFolder + '/' + page.filename, htmlRender);
+        console.log(outFolder + '/' + page.filename + ' written.');
+        pageIndex ++; //add one to the page index
     });
 
   }
 
-function build (inFolder, outFolder, themeFolder) {
+function build (inFolder, outFolder, siteConfig) {
 
   try {
-    fs.copySync(inFolder + '/assets/images', outFolder + '/assets/images')
+      fs.copySync(inFolder + '/assets/images', outFolder + '/assets/images');
+      fs.copySync('themes/'+ siteConfig.theme + '/assets/css', outFolder + '/assets/css');
+      fs.copySync('themes/'+ siteConfig.theme + '/assets/js', outFolder + '/assets/js');
     const tree = dirTree(inFolder);
     if (tree.children && inFolder && outFolder) {
-      this.render(tree.children, inFolder, outFolder, themeFolder);
+      this.render(tree.children, inFolder, outFolder, siteConfig);
     }
   } catch (err) {
     console.error(err)
