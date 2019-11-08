@@ -66,23 +66,16 @@ This page contains all the necessary logic to create not only the homepage and i
 
 Each markdown you'll notice has some metadata at the top. This is not rendered as part of the page, but rather extracted and available in the Nunjucks template. This is the structure of the data available in the Nunjucks page:
 
-```
-{
-    pageTitle,
-    pageDate,
-    pageContent,
-    pageLink,
-    pageFeaturedImage,
-    siteConfig
-}
-```
+- `{{pageTitle}}` is the title found in the markdown meta-data.
+- `{{pageDate}}` is the data found in the markdown meta-data.
+- `{{pageContent}}` is the html, rendered using the markdown found in the remainder of the file.
+- `{{pageLink}}` is the filename of this file, with a html extension.
+- `{{pageFeaturedImage}}` is the path to a featured image for this blog entry.
+- `{{siteConfig}}` is the config, found in `plix.json`
 
-- `pageTitle` is the title found in the markdown meta-data.
-- `pageDate` is the data found in the markdown meta-data.
-- `pageContent` is the html, rendered using the markdown found in the remainder of the file.
-- `pageLink` is the filename of this file, with a html extension.
-- `pageFeaturedImage` is the path to a featured image for this blog entry.
-- `siteConfig` is the config, found in `plix.json`
+`{{siteConfig}}`, by default contains the title of your blog, as well as any data you see fit to put in there.
+
+You can access the data like this: `{{siteConfig.title}}` or `{{siteConfig.author.name}}`.
 
 For more help creating a template in Nunjucks [see here](https://mozilla.github.io/nunjucks/templating.html), or open `page.html` in your favourite editor to take a look at a simple example, with loops and conditional statements in Nunjucks.
 

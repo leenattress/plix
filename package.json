@@ -1,6 +1,6 @@
 {
   "name": "plix",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Minimal markdown blog builder.",
   "main": "bin/index.js",
   "scripts": {
