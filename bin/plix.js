@@ -71,6 +71,9 @@ function render(node, inFolder, outFolder, siteConfig) {
 
     pagesCopy = JSON.parse(JSON.stringify(pages)); // for the history included in each page
 
+
+
+
     pagesCopy.forEach((specialPage) => { // special cases like index and 404, separated out here
 
         if (['404.html', 'index.html'].includes(specialPage.pageLink)) {
@@ -91,7 +94,6 @@ function render(node, inFolder, outFolder, siteConfig) {
             // write the file back to disk, at the moment, flat file structure
             fs.writeFileSync(outFolder + '/' + specialPage.filename, htmlRender);
 
-            // log it out
         }
     });
 
@@ -105,6 +107,55 @@ function render(node, inFolder, outFolder, siteConfig) {
         // to get a value that is either negative, positive, or zero.
         return new Date(b.pageDate) - new Date(a.pageDate);
     });
+
+    // we need a series of index pages, if we have lots of articles
+    const articlesPerPage = siteConfig.articlesPerPage;
+    const indexPageCount = Math.ceil(pagesCopy.length / articlesPerPage);
+    for (let step = 0; step < indexPageCount; step++) {
+
+        const indexPageSlice = pagesCopy.slice(articlesPerPage * step, (articlesPerPage * step) + articlesPerPage);
+
+        let indexFilename = 'index.html';
+        let linkPrev = null;
+        let linkNext = indexPageCount > 1 ? 'index2.html' : null;
+        if (step > 0) {
+            //write secondary index
+            indexFilename = 'index' + (step + 1) + '.html';
+
+            if (step === indexPageCount - 1) {
+                // last index, no next link
+                linkPrev = step === 1 ? 'index.html' : 'index' + step + '.html';
+                linkNext = null;
+            } else {
+                // index in the middle somewhere
+                linkPrev = step === 1 ? 'index.html' : 'index' + step + '.html';
+                linkNext = 'index' + (step + 2) + '.html';
+            }
+        }
+
+        // attach all items to history for in page rendering.
+        indexPage = {
+            pageTitle: siteConfig.title,
+            pageDate: new Date().toISOString(),
+            pageContent: '',
+            pageLink: indexFilename,
+            filename: indexFilename,
+            siteConfig: siteConfig,
+            history: pagesCopy,
+            indexArticles: indexPageSlice,
+            linkPrev: linkPrev,
+            linkNext: linkNext,
+            isIndex: true
+        };
+
+        // final rendered page with html and data
+        const htmlRender = nunjucks.renderString(template, indexPage);
+
+        // write the file back to disk, at the moment, flat file structure
+        fs.writeFileSync(outFolder + '/' + indexFilename, htmlRender);
+        console.log(outFolder + '/' + indexFilename + ' written.');
+
+    }
 
     let pageIndex = 0;
     pagesCopy.forEach((page) => {

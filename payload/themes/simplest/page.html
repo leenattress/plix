@@ -53,21 +53,21 @@
       {{pageContent | safe}}
 
       <!-- content only for homepage -->
-      {% if pageLink === 'index.html' %}
+      {% if isIndex %}
       <div class="index-content">
         {% if history.length > 0 %}
         <div class="mt-4 simplest-social-icons">
-          {% for historyPage in history.slice(0,12) %}
+          {% for indexArticle in indexArticles %}
           <div class="row">
             <div class="col-12 col-md-4 mb-4">
-              <a href="{{historyPage.pageLink}}">
-                <div {% if historyPage.pageFeaturedImage %}style="width: 100%; height: 160px; background: url('{{historyPage.pageFeaturedImage|safe}}') no-repeat center center;background-size: cover;"{% endif %}></div>
+              <a href="{{indexArticle.pageLink}}">
+                <div {% if indexArticle.pageFeaturedImage %}style="width: 100%; height: 160px; background: url('{{indexArticle.pageFeaturedImage|safe}}') no-repeat center center;background-size: cover;"{% endif %}></div>
               </a>
             </div>
             <div class="col-12 col-md-8 mb-4">
-              <h3><a title="{{historyPage.pageTitle}}" href="{{historyPage.pageLink}}">{{historyPage.pageTitle}}</a></h3>
-              <p class="text-secondary mb-1 mt-1">{{historyPage.pageDate|date}}</p>
-              <a href="{{historyPage.pageLink}}" class="stretched-link">Read More</a>
+              <h3><a title="{{indexArticle.pageTitle}}" href="{{indexArticle.pageLink}}">{{indexArticle.pageTitle}}</a></h3>
+              <p class="text-secondary mb-1 mt-1">{{indexArticle.pageDate|date}}</p>
+              <a href="{{indexArticle.pageLink}}" class="stretched-link">Read More</a>
             </div>
 
           </div>
@@ -77,11 +77,13 @@
       </div>
       {% endif %}
 
+      {% if linkNext or linkPrev %}
       <div class="mt-4 mb-4 next-previous-buttons">
         {% if linkNext %}<a class="btn btn-primary btn-lg rounded-0 float-right" href="{{linkNext}}">Next</a>{% endif %}
         {% if linkPrev %}<a class="btn btn-primary btn-lg rounded-0 float-left" href="{{linkPrev}}">Previous</a>{% endif %}
         <div class="clearfix"></div>
       </div>
+      {% endif %}
 
     </div>
     <div class="simplest-sidebar col-12 col-lg-3">

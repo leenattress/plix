@@ -1,6 +1,7 @@
 {
   "title": "My New Plix Blog",
   "theme": "simplest",
+  "articlesPerPage": 8,
   "themeData": {
     "headerOverlayColour": "rgba(59, 48, 84, 0.6)"
   },
