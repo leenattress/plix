@@ -1,18 +1,23 @@
 {
   "title": "My New Plix Blog",
   "theme": "simplest",
+  "themeData": {
+    "headerOverlayColour": "rgba(59, 48, 84, 0.6)"
+  },
   "author": {
     "name": "Blog Owner",
     "bio": "Insert your bio here",
-    "photo": "https://i.pravatar.cc/300"
+    "photo": "https://i.pravatar.cc/300",
+    "job": "Describe your job here."
   },
   "social": {
-    "twitter": "https://twitter.com/",
-    "github": "https://github.com/"
+    "Twitter": "leenattress",
+    "Github": "leenattress",
+    "LinkedIn": "leenattress"
   },
   "links": {
     "Home": "/",
-    "Google": "http://www.google.com",
-    "Bing": "http://www.bing.com"
+    "Github": "https://www.npmjs.com/package/plix",
+    "NPM": "https://www.npmjs.com/package/plix"
   }
 }

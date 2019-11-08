@@ -13,7 +13,7 @@ let env = nunjucks.configure({ autoescape: true });
 env.addFilter('date', dateFilter);
 
 function getMeta(contents, meta) {
-  var regStr = `\\[blog-${meta}\\]: <>\\s\\(*(.+)\\)\\s*`;
+  var regStr = `\\[meta-${meta}\\]: <>\\s\\(*(.+)\\)\\s*`;
   var reg = new RegExp(regStr);
   const stringReturn = (contents.match(reg) || []).map(e => e.replace(reg, '$1'));
   if (stringReturn[0]) {
@@ -38,12 +38,11 @@ function render(node, inFolder, outFolder, siteConfig) {
 
         //get the meta info from this file
         let metaDate = getMeta(contents, 'date');
-        let metaAuthor = getMeta(contents, 'author');
         let metaTitle = getMeta(contents, 'title');
         let metaFeaturedImage = getMeta(contents, 'featured');
 
         // we need a date, a title and an author for a page to be returned
-        if (contents && metaDate && metaAuthor && metaTitle) {
+        if (contents && metaDate && metaTitle) {
 
           // render the markdown to html
           var htmlResult = md.render(contents);
@@ -54,7 +53,6 @@ function render(node, inFolder, outFolder, siteConfig) {
           // add to the page array
           pages.push({
             pageTitle: metaTitle,
-            pageAuthor: metaAuthor,
             pageDate: metaDate,
             pageContent: htmlResult,
             pageLink: filename,
@@ -81,7 +79,11 @@ function render(node, inFolder, outFolder, siteConfig) {
                 if (!['404.html', 'index.html'].includes(page.pageLink)) {
                     return page;
                 }
-            }).reverse();
+            }).sort(function(a,b){
+                // Turn your strings into dates, and then subtract them
+                // to get a value that is either negative, positive, or zero.
+                return new Date(a.pageDate) - new Date(b.pageDate);
+            });
 
             // final rendered page with html and data
             const htmlRender = nunjucks.renderString(template, specialPage);

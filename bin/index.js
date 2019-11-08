@@ -147,10 +147,10 @@ if (args[0]) { //we need a command to run anything at all
 
         const now = new Date().toISOString();
         const markdownContent = `
-[blog-date]: <> (${now})
-[blog-title]: <> (Page Title)
-[blog-author]: <> (${siteConfig.author})
-[blog-featured]: <> (assets/images/default_featured.gif)
+[meta-date]: <> (${now})
+[meta-title]: <> (Page Title)
+[meta-author]: <> (${siteConfig.author})
+[meta-featured]: <> (assets/images/default_featured.gif)
 
 Write your page content here.
         `;

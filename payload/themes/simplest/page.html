@@ -1,0 +1,186 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>{{pageTitle}} | {{siteConfig.title}}</title>
+  <meta name="author" content="{{pageAuthor}}">
+  <link rel="stylesheet" href="assets/css/bootstrap-theme.css?v=1.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">{{siteConfig.title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  {% if siteConfig.links %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {% for key, item in siteConfig.links %}<li class="nav-item"><a class="nav-link" href="{{item}}">{{key}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</nav>
+
+<div class="mb-4 bg-primary">
+  <div {% if pageFeaturedImage %}style="background: url('{{pageFeaturedImage|safe}}') no-repeat center center;background-size: cover;"{% endif %}>
+    <div style="background: {{siteConfig.themeData.headerOverlayColour}}; z-index: 2;">
+      <div class="pt-5 pb-5 text-white">
+        <div class="container">
+          <h1 class="display-4" style="text-shadow: 0px 0px 12px rgba(0,0,0,1),0px 0px 6px rgba(0,0,0,1);">{{pageTitle}}</h1>
+          {% if pageLink !== 'index.html' %}
+          <h5 class="mt-5" style="text-shadow: 0px 0px 12px rgba(0,0,0,1),0px 0px 6px rgba(0,0,0,1);">On {{pageDate|date}} <small class="text-white">by {{siteConfig.author.name}}</small></h5>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="simplest-content col-12 col-lg-9">
+      {{pageContent | safe}}
+
+      <!-- content only for homepage -->
+      {% if pageLink === 'index.html' %}
+      <div class="index-content">
+        {% if history.length > 0 %}
+        <div class="mt-4 simplest-social-icons">
+          {% for historyPage in history.slice(0,12) %}
+          <div class="row">
+            <div class="col-12 col-md-4 mb-4">
+              <a href="{{historyPage.pageLink}}">
+                <div {% if historyPage.pageFeaturedImage %}style="width: 100%; height: 160px; background: url('{{historyPage.pageFeaturedImage|safe}}') no-repeat center center;background-size: cover;"{% endif %}></div>
+              </a>
+            </div>
+            <div class="col-12 col-md-8 mb-4">
+              <h3><a title="{{historyPage.pageTitle}}" href="{{historyPage.pageLink}}">{{historyPage.pageTitle}}</a></h3>
+              <p class="text-secondary mb-1 mt-1">{{historyPage.pageDate|date}}</p>
+              <a href="{{historyPage.pageLink}}" class="stretched-link">Read More</a>
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <div class="mt-4 mb-4 next-previous-buttons">
+        {% if linkNext %}<a class="btn btn-primary btn-lg rounded-0 float-right" href="{{linkNext}}">Next</a>{% endif %}
+        {% if linkPrev %}<a class="btn btn-primary btn-lg rounded-0 float-left" href="{{linkPrev}}">Previous</a>{% endif %}
+        <div class="clearfix"></div>
+      </div>
+
+    </div>
+    <div class="simplest-sidebar col-12 col-lg-3">
+
+      <div class="d-md-none progress-bar mb-4" role="progressbar" style="width: 100%; height:4px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+
+      <div class="simplest-bio">
+        <h3 class="mb-3">Short Bio</h3>
+        <div class="card rounded-0">
+          <img class="card-img-top rounded-0" src="{{siteConfig.author.photo}}" alt="{{siteConfig.author.name}} profile image">
+          <div class="card-body">
+            <h5 class="card-title">{{siteConfig.author.name}}</h5>
+            {% if siteConfig.author.bio %}<p class="card-text small">{{siteConfig.author.bio|safe}}</p>{% endif %}
+            {% if siteConfig.author.job %}
+            <h5>Job</h5>
+            <p class="card-text small">{{siteConfig.author.job|safe}}</p>{% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="progress-bar mt-4 mb-4" role="progressbar" style="width: 100%; height:4px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+
+      <!-- https://dribbble.com/shots/2089345-Nucleo-Free-Social-Icons -->
+      {% if siteConfig.social %}
+      <div class="simplest-social-icons">
+        <h3 class="mb-3">Social</h3>
+
+        <div class="row">
+
+          {% if siteConfig.social.Twitter %}
+          <div class="col-3">
+            <a class="block" href="http://twitter.com/{{siteConfig.social.Twitter}}">
+              <img class="img-fluid w-100" src="assets/images/social-icons/social-1_logo-twitter.svg" />
+            </a>
+          </div>
+          {% endif %}
+
+          {% if siteConfig.social.Github %}
+          <div class="col-3">
+            <a class="block" href="http://github.com/{{siteConfig.social.Github}}">
+              <img class="img-fluid w-100" src="assets/images/social-icons/social-1_logo-github.svg" />
+            </a>
+          </div>
+          {% endif %}
+
+          {% if siteConfig.social.LinkedIn %}
+          <div class="col-3">
+            <a class="block" href="https://www.linkedin.com/in/{{siteConfig.social.LinkedIn}}">
+              <img class="img-fluid w-100" src="assets/images/social-icons/social-1_logo-linkedin.svg" />
+            </a>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="progress-bar mt-4 mb-4" role="progressbar" style="width: 100%; height:4px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+
+      {% if history.length > 0 %}
+      <div class="mt-4 simplest-social-icons">
+        <h3 class="mb-3">Recent</h3>
+        {% for historyPage in history.slice(0,5) %}
+        <div class="row">
+          <div class="col-12 mt-3 mb-3 border-swatch-300 border border-left-0 border-right-0 border-top-0"></div>
+          <div class="col-4">
+            <div {% if historyPage.pageFeaturedImage %}style="width: 100%; height: 75px; background: url('{{historyPage.pageFeaturedImage|safe}}') no-repeat center center;background-size: cover;"{% endif %}></div>
+          </div>
+          <div class="col-8">
+            <h5><a title="{{historyPage.pageTitle}}" href="{{historyPage.pageLink}}">{{historyPage.pageTitle|truncate(50,false,'...')}}</a></h5>
+            <p class="small m-0 p-0">{{historyPage.pageDate|date}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="progress-bar mt-4 mb-4" role="progressbar" style="width: 100%; height:4px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+
+      {% if siteConfig.social.Twitter %}
+      <a class="twitter-timeline" data-tweet-limit=10 href="https://twitter.com/{{siteConfig.social.Twitter}}?ref_src=twsrc%5Etfw">Tweets by {{siteConfig.social.Twitter}}</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+
+<footer class="bg-dark text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 p-4">
+        <p class="text-center">&copy; Copyright 2019, {{siteConfig.author.name}}</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/scripts.js"></script>
+</body>
+</html>

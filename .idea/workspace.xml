@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="841d0286-0ce9-4dc3-a118-7dd2bfe08b72" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/default_featured.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/plix_readme.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-500px.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-behance.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-blogger.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-buffer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-buysellads.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-codepen.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-creative-market.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-deviantart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-dribbble.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-dropbox.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-envato.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-evernote.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-facebook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-feedly.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-flickr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-github.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-google-plus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-instagram.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-lastfm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-linkedin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-myspace.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-paypal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-pinterest.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-product-hunt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-reddit.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-rss.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-shopify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-skype.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-slack.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-soundcloud.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-spotify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-trello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-tumblr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-twitter.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-vimeo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-vine.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-whatsapp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-wordpress.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-yelp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_logo-youtube.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-behance.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-deviantart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-dribbble.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-dropbox.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-evernote.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-facebook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-github.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-google-plus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-instagram.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-linkedin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-pinterest.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-product-hunt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-skype.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-slack.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-spotify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-tumblr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-twitter.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-vimeo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-wordpress.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_round-youtube.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-500px.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-behance.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-blogger.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-buffer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-buysellads.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-codepen.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-creative-market.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-deviantart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-dribbble.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-dropbox.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-envato.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-evernote.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-facebook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-feedly.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-flickr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-github.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-google-plus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-instagram.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-lastfm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-linkedin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-myspace.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-paypal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-pinterest.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-product-hunt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-reddit.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-rss.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-shopify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-skype.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-slack.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-soundcloud.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-spotify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-trello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-tumblr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-twitter.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-vimeo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-vine.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-whatsapp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-wordpress.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-yelp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-1_square-youtube.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-500px.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-blogger.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-buffer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-buysellads.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-codepen.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-creative-market.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-envato.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-feedly.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-flickr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-lastfm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-myspace.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-paypal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-reddit.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-rss.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-soundcloud.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-spotify-12.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-trello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-vine.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-whatsapp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/src/assets/images/social-icons/social-2_round-yelp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/themes/simplest/assets/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payload/themes/simplest/assets/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/plix.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/plix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payload/plix.json" beforeDir="false" afterPath="$PROJECT_DIR$/payload/plix.json" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/payload/plix.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="28" lean-forward="true" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="1638">
+                <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/plix.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="61" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>replaceAll</find>
+      <find>md.render</find>
+      <find>build</find>
+      <find>contents</find>
+      <find>includes</find>
+      <find>theme</find>
+      <find>.render</find>
+      <find>console.log</find>
+      <find>[blog-</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>[meta-</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/bin/index.js" />
+        <option value="$PROJECT_DIR$/bin/plix.js" />
+        <option value="$PROJECT_DIR$/payload/themes/simplest/page.html" />
+        <option value="$PROJECT_DIR$/payload/plix.json" />
+        <option value="$PROJECT_DIR$/payload/src/index.md" />
+        <option value="$PROJECT_DIR$/payload/src/404.md" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/plix.iml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/plix.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="874" />
+    <option name="y" value="276" />
+    <option name="width" value="2649" />
+    <option name="height" value="2112" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="plix" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\deept\Documents\plix" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="plix" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\deept\Documents\plix" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="payload" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="plix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plix" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="plix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plix" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="plix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plix" type="462c0819:PsiDirectoryNode" />
+              <item name="payload" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/payload/src/assets/images" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\deept\Documents\plix\payload\src\assets\images" />
+      <recent name="C:\Users\deept\Documents\plix\payload\themes\simplest\assets\images" />
+      <recent name="C:\Users\deept\Documents\plix\payload\themes\simplest\assets\css" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="841d0286-0ce9-4dc3-a118-7dd2bfe08b72" name="Default Changelist" comment="" />
+      <created>1572687212259</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572687212259</updated>
+      <workItem from="1572687213389" duration="853000" />
+      <workItem from="1572689175407" duration="17276000" />
+      <workItem from="1572803334494" duration="821000" />
+      <workItem from="1573237907799" duration="2736000" />
+    </task>
+    <task id="LOCAL-00001" summary="latest update, possibly breaking">
+      <created>1572724951102</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572724951103</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="21686000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="583" y="184" width="1766" height="1408" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49707603" visible="true" weight="0.18160787" />
+      <window_info id="Structure" order="1" sideWeight="0.50292397" side_tool="true" visible="true" weight="0.18160787" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="GraphQL" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3299373" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="latest update, possibly breaking" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest update, possibly breaking" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/payload/themes/simplest/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/custom-variables-bootstrap-2019-11-03.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10426" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payload/themes/simplest/page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="92" column="36" lean-forward="true" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="79" column="58" selection-start-line="79" selection-start-column="58" selection-end-line="79" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payload/src/404.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="84">
+            <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payload/src/index.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="63">
+            <caret line="3" selection-start-line="3" selection-end-line="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payload/themes/simplest/assets/images/social-icons/social-1_logo-rss.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payload/themes/simplest/assets/css/bootstrap-theme.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payload/plix.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="28" lean-forward="true" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/plix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="61" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1638">
+            <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
