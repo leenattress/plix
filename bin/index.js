@@ -61,6 +61,7 @@ Try these commands:`));
   c(chalk.magenta(`${appName} page page-of-amazing-content`), chalk.blue(` - Adds a page to your blog`));
   c(chalk.magenta(`${appName} deploy`), chalk.blue(` - Send your blog to the clouds`));
   c(chalk.magenta(`${appName} build`), chalk.blue(` - Generate html in the output folder`));
+  c(chalk.magenta(`${appName} resize`), chalk.blue(` - Compress large images in your source folder`));
 }
 
 function getConfig() {
@@ -77,7 +78,7 @@ function getConfig() {
 if (args[0]) { //we need a command to run anything at all
   const command = args[0]; //
 
-  if (!['help', 'new', 'page', 'deploy', 'build', 'serve'].includes(command)) {
+  if (!['help', 'new', 'page', 'deploy', 'build', 'serve', 'resize'].includes(command)) {
     showError();
     c(chalk.red('You gave a command that does not exist.'));
     showHelp();
@@ -149,7 +150,6 @@ if (args[0]) { //we need a command to run anything at all
         const markdownContent = `
 [meta-date]: <> (${now})
 [meta-title]: <> (Page Title)
-[meta-author]: <> (${siteConfig.author})
 [meta-featured]: <> (assets/images/default_featured.gif)
 
 Write your page content here.
@@ -175,7 +175,6 @@ Write your page content here.
 
 
       c(chalk.green('Creating page: ' + subject));
-      // TODO: create page here in markdown folder
 
     } else {
       showError();
@@ -194,13 +193,17 @@ Write your page content here.
     const siteConfig = getConfig();
     c(chalk.green('Building'), siteConfig.title);
     plix.build(appDirIn, appDirOut, siteConfig);
-    // TODO: build the files to the output folder
+    process.exit()
+  }
+  if (command === 'resize') {
+    const siteConfig = getConfig();
+    c(chalk.green('Resizing images'), siteConfig.title);
+    plix.resize(appDirIn, appDirOut, siteConfig);
     process.exit()
   }
   if (command === 'serve') {
     const siteConfig = getConfig();
     c(chalk.green('Building and serving'), siteConfig.title);
-    // TODO: basic webserver for the files in the build folder
     process.exit()
   }
 

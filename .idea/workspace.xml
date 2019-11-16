@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="841d0286-0ce9-4dc3-a118-7dd2bfe08b72" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/plix.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/plix.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payload/plix.json" beforeDir="false" afterPath="$PROJECT_DIR$/payload/plix.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payload/themes/simplest/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/payload/themes/simplest/page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,11 +18,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/plix.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="714">
+              <caret line="132" column="22" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bin/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2247">
+              <caret line="61" column="87" selection-start-line="61" selection-start-column="87" selection-end-line="61" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -31,7 +40,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>replaceAll</find>
       <find>md.render</find>
       <find>build</find>
       <find>contents</find>
@@ -43,9 +51,13 @@
       <find>index.html</find>
       <find>nattre</find>
       <find>indexFilename</find>
+      <find>nunjucks.renderString</find>
+      <find>replaceAll</find>
+      <find>sharp</find>
     </findStrings>
     <replaceStrings>
       <replace>[meta-</replace>
+      <replace>pages</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -54,14 +66,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bin/index.js" />
         <option value="$PROJECT_DIR$/payload/src/404.md" />
         <option value="$PROJECT_DIR$/payload/src/index.md" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/bin/plix.js" />
         <option value="$PROJECT_DIR$/payload/plix.json" />
         <option value="$PROJECT_DIR$/payload/themes/simplest/page.html" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/bin/index.js" />
+        <option value="$PROJECT_DIR$/bin/plix.js" />
       </list>
     </option>
   </component>
@@ -80,10 +92,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="801" />
-    <option name="y" value="37" />
+    <option name="x" value="922" />
+    <option name="y" value="73" />
     <option name="width" value="2649" />
-    <option name="height" value="2112" />
+    <option name="height" value="1995" />
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
@@ -94,22 +106,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="plix" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\deept\Documents\plix" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="plix" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\deept\Documents\plix" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="payload" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,12 +127,6 @@
               <item name="plix" type="b2602c69:ProjectViewProjectNode" />
               <item name="plix" type="462c0819:PsiDirectoryNode" />
               <item name="payload" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plix" type="462c0819:PsiDirectoryNode" />
-              <item name="payload" type="462c0819:PsiDirectoryNode" />
               <item name="themes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -145,6 +135,22 @@
               <item name="payload" type="462c0819:PsiDirectoryNode" />
               <item name="themes" type="462c0819:PsiDirectoryNode" />
               <item name="simplest" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="plix" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\deept\Documents\plix" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="plix" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\deept\Documents\plix" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="payload" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -188,7 +194,8 @@
       <workItem from="1572687213389" duration="853000" />
       <workItem from="1572689175407" duration="17276000" />
       <workItem from="1572803334494" duration="821000" />
-      <workItem from="1573237907799" duration="6824000" />
+      <workItem from="1573237907799" duration="7019000" />
+      <workItem from="1573926521729" duration="12279000" />
     </task>
     <task id="LOCAL-00001" summary="latest update, possibly breaking">
       <created>1572724951102</created>
@@ -201,14 +208,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25774000" />
+    <option name="totallyTimeSpent" value="38248000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="534" y="25" width="1766" height="1408" extended-state="0" />
-    <editor active="true" />
+    <frame x="615" y="49" width="1766" height="1330" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49707603" visible="true" weight="0.18160787" />
-      <window_info id="Structure" order="1" sideWeight="0.50292397" side_tool="true" visible="true" weight="0.18160787" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49574468" visible="true" weight="0.18160787" />
+      <window_info id="Structure" order="1" sideWeight="0.5042553" side_tool="true" visible="true" weight="0.18160787" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -222,7 +228,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="GraphQL" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3299373" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.21535893" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -244,13 +250,6 @@
         <state relative-caret-position="-10426" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="79" column="58" selection-start-line="79" selection-start-column="58" selection-end-line="79" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/payload/src/404.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -261,9 +260,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/payload/themes/simplest/assets/images/social-icons/social-1_logo-rss.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/payload/themes/simplest/assets/images/social-icons/social-1_logo-rss.svg" />
     <entry file="file://$PROJECT_DIR$/payload/themes/simplest/assets/css/bootstrap-theme.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -298,13 +295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/plix.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="111" column="54" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -319,6 +309,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/sharp/lib/resize.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/sharp/vendor/lib/glib-2.0/include/glibconfig.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/sharp/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/sharp/lib/constructor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-567" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/plix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="132" column="22" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2247">
+          <caret line="61" column="87" selection-start-line="61" selection-start-column="87" selection-end-line="61" selection-end-column="87" />
         </state>
       </provider>
     </entry>

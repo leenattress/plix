@@ -1,10 +1,10 @@
 const fs = require('fs-extra')
-var mkdirp = require('mkdirp');
 const dirTree = require("directory-tree");
 const MarkdownIt = require('markdown-it'),
 md = new MarkdownIt();
 const attrs = require('markdown-it-attrs');
 md.use(attrs);
+
 
 const nunjucks = require('nunjucks');
 const dateFilter = require('nunjucks-date-filter');
@@ -24,96 +24,79 @@ function getMeta(contents, meta) {
 }
 
 function render(node, inFolder, outFolder, siteConfig) {
-
+//console.log(node)
     // get the contents of the template file
     var template = fs.readFileSync('themes/'+ siteConfig.theme +'/page.html', 'utf8');
 
+    // this array will be the pages we write
     let pages = [];
-
+    
     node.forEach((page) => {
-      if (page.path && page.type === 'file' && page.extension === '.md') {
-
-        // get contents of markdown from disk
-        var contents = fs.readFileSync(page.path, 'utf8');
-
-        //get the meta info from this file
-        let metaDate = getMeta(contents, 'date');
-        let metaTitle = getMeta(contents, 'title');
-        let metaFeaturedImage = getMeta(contents, 'featured');
-
-        // we need a date, a title and an author for a page to be returned
-        if (contents && metaDate && metaTitle) {
-
-          // render the markdown to html
-          var htmlResult = md.render(contents);
-
-          // replace md in the filename for html
-          filename = page.name.substr(0, page.name.lastIndexOf(".")) + ".html";
-
-          // add to the page array
-          pages.push({
-            pageTitle: metaTitle,
-            pageDate: metaDate,
-            pageContent: htmlResult,
-            pageLink: filename,
-            pageFeaturedImage: metaFeaturedImage,
-            filename: filename,
-            siteConfig: siteConfig
-          });
+        if (page.name != 'index.md' && page.name != '404.md') { // special cases
+            
+          if (page.path && page.type === 'file' && page.extension === '.md') {
+    
+            // get contents of markdown from disk
+            var contents = fs.readFileSync(page.path, 'utf8');
+    
+            //get the meta info from this file
+            let metaDate = getMeta(contents, 'date');
+            let metaTitle = getMeta(contents, 'title');
+            let metaFeaturedImage = getMeta(contents, 'featured');
+    
+            // we need a date, a title and an author for a page to be returned
+            if (contents && metaDate && metaTitle) {
+    
+              // render the markdown to html
+              var htmlResult = md.render(contents);
+    
+              // replace md in the filename for html
+              filename = page.name.substr(0, page.name.lastIndexOf(".")) + ".html";
+    
+              // add to the page array
+              pages.push({
+                pageTitle: metaTitle,
+                pageDate: metaDate,
+                pageContent: htmlResult,
+                pageLink: filename,
+                pageFeaturedImage: metaFeaturedImage,
+                filename: filename,
+                siteConfig: siteConfig // every page gets a copy of the config
+              });
+            }
+          }
         }
-      }
+
     });
+    
+    //sort the pages by created date
     pages.sort(function(a,b){
-      // Turn your strings into dates, and then subtract them
+      // Turn strings into dates, and then subtract them
       // to get a value that is either negative, positive, or zero.
-      return new Date(a.pageDate) - new Date(b.pageDate);
+      return new Date(b.pageDate) - new Date(a.pageDate);
     });
 
-    pagesCopy = JSON.parse(JSON.stringify(pages)); // for the history included in each page
-
-
-
-
-    pagesCopy.forEach((specialPage) => { // special cases like index and 404, separated out here
-
-        if (['404.html', 'index.html'].includes(specialPage.pageLink)) {
-            // attach all items to history for in page rendering.
-            specialPage.history = pagesCopy.filter((page) => { // remove index and 404 from the history
-                if (!['404.html', 'index.html'].includes(page.pageLink)) {
-                    return page;
-                }
-            }).sort(function(a,b){
-                // Turn your strings into dates, and then subtract them
-                // to get a value that is either negative, positive, or zero.
-                return new Date(a.pageDate) - new Date(b.pageDate);
-            });
-
-            // final rendered page with html and data
-            const htmlRender = nunjucks.renderString(template, specialPage);
-
-            // write the file back to disk, at the moment, flat file structure
-            fs.writeFileSync(outFolder + '/' + specialPage.filename, htmlRender);
-
-        }
-    });
-
-    pagesCopy = pagesCopy.filter((page) => { // remove index and 404 from the history
-        if (!['404.html', 'index.html'].includes(page.pageLink)) {
-            return page;
-        }
-    });
-    pagesCopy = pagesCopy.sort(function(a,b){
-        // Turn your strings into dates, and then subtract them
-        // to get a value that is either negative, positive, or zero.
-        return new Date(b.pageDate) - new Date(a.pageDate);
-    });
+    pages.forEach((page => {
+        // attach the pages to each page, as a history
+        page.history = pages;
+    }));
 
     // we need a series of index pages, if we have lots of articles
     const articlesPerPage = siteConfig.articlesPerPage;
-    const indexPageCount = Math.ceil(pagesCopy.length / articlesPerPage);
+    const indexPageCount = Math.ceil(pages.length / articlesPerPage);
+    console.log('Index pages count:', indexPageCount);
+
+    //get index page meta
+    // get contents of markdown from disk
+    var indexContents = fs.readFileSync(inFolder + '/index.md', 'utf8');
+    //get the meta info from this file
+    let indexMetaTitle = getMeta(indexContents, 'title');
+    let indexMetaFeaturedImage = getMeta(indexContents, 'featured');
+
+
     for (let step = 0; step < indexPageCount; step++) {
 
-        const indexPageSlice = pagesCopy.slice(articlesPerPage * step, (articlesPerPage * step) + articlesPerPage);
+        const indexPageSlice = pages.slice(articlesPerPage * step, (articlesPerPage * step) + articlesPerPage);
 
         let indexFilename = 'index.html';
         let linkPrev = null;
@@ -135,17 +118,19 @@ function render(node, inFolder, outFolder, siteConfig) {
 
         // attach all items to history for in page rendering.
         indexPage = {
-            pageTitle: siteConfig.title,
+            pageTitle: indexMetaTitle,
             pageDate: new Date().toISOString(),
-            pageContent: '',
+            pageContent: md.render(indexContents),
             pageLink: indexFilename,
+            pageFeaturedImage: indexMetaFeaturedImage,
             filename: indexFilename,
             siteConfig: siteConfig,
-            history: pagesCopy,
+            history: pages,
             indexArticles: indexPageSlice,
             linkPrev: linkPrev,
             linkNext: linkNext,
-            isIndex: true
+            isIndex: true,
+            indexCount: step
         };
 
         // final rendered page with html and data
@@ -158,19 +143,21 @@ function render(node, inFolder, outFolder, siteConfig) {
     }
 
     let pageIndex = 0;
-    pagesCopy.forEach((page) => {
+    console.log('pages:', pages.map((page) => page.pageTitle));
+
+    pages.forEach((page) => {
 
         //previous and next links
         let linkPrev = null, linkNext = null;
-        if (pagesCopy[pageIndex + 1]) {
-            linkPrev = pagesCopy[pageIndex + 1].pageLink;
+        if (pages[pageIndex + 1]) {
+            linkPrev = pages[pageIndex + 1].pageLink;
         }
-        if (pagesCopy[pageIndex - 1]) {
-            linkNext = pagesCopy[pageIndex - 1].pageLink;
+        if (pages[pageIndex - 1]) {
+            linkNext = pages[pageIndex - 1].pageLink;
         }
 
         // attach all items to history for in page rendering.
-        page.history = pagesCopy.reverse();
+        page.history = pages;
         page.pageIndex = pageIndex;
         page.linkPrev = linkPrev;
         page.linkNext = linkNext;
@@ -201,6 +188,7 @@ function build (inFolder, outFolder, siteConfig) {
   }
 
 }
+
 
 module.exports = {
   render: render,
