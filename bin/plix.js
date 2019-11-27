@@ -1,17 +1,25 @@
+// filesystem stuff
 const fs = require('fs-extra')
 const dirTree = require("directory-tree");
+
+// handling markdown
 const MarkdownIt = require('markdown-it'),
 md = new MarkdownIt();
 const attrs = require('markdown-it-attrs');
 md.use(attrs);
 
+//for deployment
+var s3 = require('s3');
+var AWS = require('aws-sdk');
 
+// html template building
 const nunjucks = require('nunjucks');
 const dateFilter = require('nunjucks-date-filter');
 dateFilter.setDefaultFormat('dddd, MMMM Do YYYY, h:mm:ss a');
 let env = nunjucks.configure({ autoescape: true });
 env.addFilter('date', dateFilter);
 
+// a helper function to get meta-data from markdown files
 function getMeta(contents, meta) {
   var regStr = `\\[meta-${meta}\\]: <>\\s\\(*(.+)\\)\\s*`;
   var reg = new RegExp(regStr);
@@ -24,7 +32,7 @@ function getMeta(contents, meta) {
 }
 
 function render(node, inFolder, outFolder, siteConfig) {
-//console.log(node)
+
     // get the contents of the template file
     var template = fs.readFileSync('themes/'+ siteConfig.theme +'/page.html', 'utf8');
 
@@ -189,8 +197,42 @@ function build (inFolder, outFolder, siteConfig) {
 
 }
 
+function deploy(appDirIn, appDirOut, siteConfig) {
+
+    AWS.config.loadFromPath('./aws.credentials.json');
+
+    let awsS3Client = new AWS.S3();
+    let client = s3.createClient({
+        s3Client: awsS3Client
+    });
+
+    console.log(`${process.cwd()}\\${appDirOut}`);
+
+    let params = {
+        localDir: `${process.cwd()}\\${appDirOut}`,
+        deleteRemoved: true,
+        s3Params: {
+            Bucket: siteConfig.deploy.s3Bucket,
+            Prefix: ""
+        },
+    };
+
+    let uploader = client.uploadDir(params);
+    uploader.on('error', function(err) {
+        console.error("unable to sync:", err.stack);
+    });
+    uploader.on('progress', function() {
+        console.log("progress", uploader.progressAmount, uploader.progressTotal);
+    });
+    uploader.on('end', function() {
+        console.log("done uploading");
+    });
+
+}
+
 
 module.exports = {
-  render: render,
-  build: build
+    render: render,
+    build: build,
+    deploy: deploy
 }

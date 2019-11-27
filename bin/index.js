@@ -21,6 +21,11 @@ const plix = require('./plix.js');
 //package json details in app
 const pjson = require('./../package.json');
 
+//for deployment
+var s3 = require('s3');
+var AWS = require('aws-sdk');
+var s3EasyDeploy = require('s3-easy-deploy');
+
 function showError() {
 c(chalk.red(`
             ░▓▓▓░
@@ -186,8 +191,16 @@ Write your page content here.
   if (command === 'deploy') {
     const siteConfig = getConfig();
     c(chalk.green('Deploying'), siteConfig.title);
-    // TODO: send the output folder contents to an s3 bucket, ftp, etc.
-    process.exit()
+    // deploy to public bucket
+      s3EasyDeploy.deploy({
+          publicRoot: `${process.cwd()}\\${appDirOut}`,
+          bucket: siteConfig.deploy.s3Bucket,
+          acl: 'public-read',
+          region: siteConfig.deploy.s3Region
+      }, function(error, result) {
+          if (error) { console.log(error); }
+          if (result) { console.log(result); }
+      });
   }
   if (command === 'build') {
     const siteConfig = getConfig();
